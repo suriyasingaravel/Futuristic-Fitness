@@ -5,7 +5,6 @@ import {
   Flex,
   Avatar,
   HStack,
-  Text,
   IconButton,
   Button,
   Menu,
@@ -15,28 +14,34 @@ import {
   MenuDivider,
   useDisclosure,
   useColorModeValue,
-  Stack,Image,
+  Stack,
+  Image,
+ 
 } from '@chakra-ui/react';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
-
-
-import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
-
-const Links = ['Dashboard', 'Projects', 'Team'];
+let lin = [
+  { text: 'Home', path: '/' },
+  { text: 'Explore', path: '/explore' },
+  { text: 'About', path: '/about' },
+  { text: 'Contact', path: '/contact' },
+ 
+];
 
 const NavLink = (props) => {
-  const { children } = props;
+  const { children, to } = props; // Extract 'to' prop
   return (
     <Box
-      as="a"
+      as={Link} // Use the Link component
       px={2}
       py={1}
       rounded={'md'}
       _hover={{
         textDecoration: 'none',
-        bg: useColorModeValue('gray.200', 'gray.700'),
+        color: useColorModeValue('blue.500', 'blue.600'),
       }}
-      href={'#'}
+      to={to} // Use the 'to' prop for navigation
     >
       {children}
     </Box>
@@ -48,7 +53,7 @@ export default function Navbar() {
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box  px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -57,26 +62,25 @@ export default function Navbar() {
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
-
-          <HStack spacing={8} alignItems={'center'}>
-        
-            <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+          <HStack spacing={240} alignItems={'center'}>
+            <Box>
+              <Image
+                width={200}
+                h={16}
+                size={'sm'}
+                src="./images/logo.png"
+                alt="Logo"
+              />
+            </Box>
+            <HStack as={'nav'} spacing={12} display={{ base: 'none', md: 'flex' }}>
+              {lin.map(({ text, path }) => (
+                <NavLink to={path} key={path}> {/* Use 'path' as key */}
+                  {text}
+                </NavLink>
               ))}
             </HStack>
           </HStack>
-
           <Flex alignItems={'center'}>
-            <Button
-              variant={'solid'}
-              colorScheme={'teal'}
-              size={'sm'}
-              mr={4}
-              leftIcon={<AddIcon />}
-            >
-              Workouts
-            </Button>
             <Menu>
               <MenuButton
                 as={Button}
@@ -85,18 +89,19 @@ export default function Navbar() {
                 cursor={'pointer'}
                 minW={0}
               >
-                {/* <Avatar
+                <Avatar
                   size={'sm'}
                   src={
                     'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
                   }
-                /> */}
+                  alt="User Avatar"
+                />
               </MenuButton>
               <MenuList>
-                <MenuItem>My list</MenuItem>
-                <MenuItem>To do list</MenuItem>
+                <MenuItem>Link 1</MenuItem>
+                <MenuItem>Link 2</MenuItem>
                 <MenuDivider />
-                <MenuItem>Stop watch</MenuItem>
+                <MenuItem>Link 3</MenuItem>
               </MenuList>
             </Menu>
           </Flex>
@@ -104,15 +109,15 @@ export default function Navbar() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+              {lin.map(({ text, path }) => (
+                <NavLink to={path} key={path}> {/* Use 'path' as key */}
+                  {text}
+                </NavLink>
               ))}
             </Stack>
           </Box>
         ) : null}
       </Box>
-
-      <Box p={4}>Main Content Here</Box>
     </>
   );
 }

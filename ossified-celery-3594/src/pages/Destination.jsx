@@ -1,11 +1,13 @@
 import React from 'react'
-import Navbar from '../Components/Navbar'
+import "../Css/Destination.css"
+
 const Destination = () => {
   return (
-    <>
-    <Navbar />
-    <h1>Fitness</h1>
-    </>
+    <div className='cont'>
+    <h1 style={{height:"70px"}}>Fitness</h1>
+    <h1> </h1>
+    </div>
+   
   )
 }
 

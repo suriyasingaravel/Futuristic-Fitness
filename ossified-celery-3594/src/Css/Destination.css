@@ -1,0 +1,10 @@
+.cont{
+    background-color: black;
+    padding-top: 200px;
+    height: 1200px;
+    background-repeat :no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: whitesmoke;
+    background-image: url('./images/pexels-cottonbro-studio-4753892.jpg');
+}

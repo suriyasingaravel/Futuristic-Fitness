@@ -52,9 +52,9 @@ const SocialButton = ({
 export default function Footer() {
   return (
     <Box
-      bg={useColorModeValue('rgb(237,242,247)', 'gray.900')}
+      bg="black"
       
-      color={useColorModeValue('gray.700', 'gray.200')}>
+      color="whitesmoke">
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={'flex-start'}>
@@ -107,10 +107,10 @@ export default function Footer() {
             {/* <AppStoreBadge /> */}
             {/* <PlayStoreBadge /> */}
             <Link to="https://play.google.com/store/games?device=windows&pli=1">
-            <Image src='../images/google-play.png' width="10rem" />
+            <Image src='../images/playstore.png' width="10rem" />
             </Link>
-            <Link to="https://play.google.com/store/games?device=windows&pli=1">
-            <Image src='../images/appstore.png' width="10rem" /></Link>
+            <Link to="https://www.apple.com/app-store/">
+            <Image src='./images/apple store.png' width="10rem" /></Link>
           </Stack>
         </SimpleGrid>
       </Container>
@@ -127,7 +127,7 @@ export default function Footer() {
           spacing={4}
           justify={{ md: 'space-between' }}
           align={{ md: 'center' }}>
-          <Text> <Image src='../images/logo2.png' width="10rem" /> ©. All rights reserved</Text>
+          <Text> <Image src='../images/logo-2.png' width="8rem" /> ©. All rights reserved</Text>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href={'#'}>
               <FaTwitter />

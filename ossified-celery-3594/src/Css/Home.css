@@ -1,9 +1,30 @@
 
-.homeBg{
-    /* background-image: url("./images/bg.jpg"); */
-    background-color: red;
-    height: 500px;
+.main{
+    color: whitesmoke;
+    background-color: black;
 }
 
+.homeBg{
+    /* background-image: url("./images/bg.jpg"); */
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(16, 7, 7);
+    height: 600px;
+    background-image:url('./images/bg.jpg');
+    background-repeat :no-repeat;
+    background-size: cover;
+    padding-top: 320px;
+    padding-left: 100px;
+    background-position: center center;
+}
 
+.mid{
+    background-color: black;
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+
+.mid > img{
+    width: 370px;
+}
 

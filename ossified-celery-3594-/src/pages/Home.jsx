@@ -6,15 +6,17 @@ import { Button, ButtonGroup } from '@chakra-ui/react'
 import { Box,Heading} from '@chakra-ui/react'
 import { Stack, HStack, VStack,Text,SimpleGrid} from '@chakra-ui/react'
 import {Link} from "react-router-dom"
-
-
+import bg from "../assets/images/bg.jpg"
+import fitness from "../assets/images/pexels-tima-miroshnichenko-6389075.jpg"
+import fit from "../assets/images/pexels-cottonbro-studio-4753996.jpg"
+import appstore from "../assets/images/app-2x.jpg"
 
 
 const Home = () => {
 
   return (
   <div className='main'>
-    <div className='homeBg' >
+    <div className='homeBg'style={{ backgroundImage: `url(${bg})` }} >
       <Heading  as='h2' size='xl' color="whitee" marginBottom={10} > TAKE YOUR TRAINING TO THE NEXT LEVEL</Heading>
       <Link to="/explore"> <Button colorScheme='blue'>Explore More</Button> </Link> 
     </div>
@@ -22,10 +24,10 @@ const Home = () => {
     <Box w="90%" margin="auto" marginTop={10}>
       <SimpleGrid columns={{base:1,md:3}} placeItems="center" spacing={10}>
         <Box>
-        <Link to="/explore" > <Image borderRadius="10px" marginRight={5} w='20rem' src='./images/pexels-tima-miroshnichenko-6389075.jpg' alt='fit' /></Link> 
+        <Link to="/explore" > <Image borderRadius="10px" marginRight={5} w='20rem' src={fitness} alt='fit' /></Link> 
         </Box>
         <Box>
-        <Image borderRadius="10px" w='20rem' src='./images/pexels-cottonbro-studio-4753996.jpg' alt='fitness' />
+        <Image borderRadius="10px" w='20rem' src={fit} alt='fitness' />
         </Box>
         <Box>
         <VStack marginLeft={10}>
@@ -38,7 +40,7 @@ const Home = () => {
 
     <SimpleGrid marginTop="30px" backgroundColor="#00B7BC" height={{base:"700px",md:"460px"}}  columns={{base:1,md:2}} placeItems="center" spacing={10}>
       <Box>
-      <Link to="/explore" > <Image borderRadius="10px" marginRight={5} w='30rem' src='./images/app-2x.jpg' alt='fit' /></Link> 
+      <Link to="/explore" > <Image borderRadius="10px" marginRight={5} w='30rem' src={appstore} alt='app' /></Link> 
       </Box>
       <Box width="90%" margin="auto" >
         <Heading as='h2' size='xl' paddingBottom="10px" > TAP INTO WAY MORE </Heading>

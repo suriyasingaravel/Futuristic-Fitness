@@ -47,7 +47,7 @@ let initState={
       <Input type="number" placeholder="height in cm" className="height" value={value.height} name="height" onChange={(e)=>HandleChange(e)}/>
     </SimpleGrid>
     <Button marginRight="20px" backgroundColor="#FF6129" onClick={HandleSubmit}>Calculate</Button>
-    <Button backgroundColor="#FF6129" onClick={HandleReset}>Reset</Button>
+    <Button  backgroundColor="#FF6129" onClick={HandleReset}>Reset</Button>
     
     {status && <Grid className="bmi-result">
       <Text className="bmi-value">{status}</Text> </Grid> }

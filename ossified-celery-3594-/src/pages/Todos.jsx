@@ -23,10 +23,10 @@ const Todos = () => {
 
   return (
     <div style={{backgroundColor:"black"}}>
-    <Box paddingTop="100px" height="500px" backgroundColor="black" width="50%" margin="auto" >
+    <Box paddingTop="100px" height="500px" backgroundColor="black"  width={{base:"90%",md:"50%"}} margin="auto" >
       <TodoInput onSubmit={handleAddTodo} />
       <div data-testid="todos-wrapper">
-        {todos.map((el, index) => (
+        {todos.map((el, index) => ( 
           <Flex key={index} alignItems="center" mt={2}>
             <Text
               flex="1"

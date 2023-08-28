@@ -18,6 +18,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
+import logo from "../assets/images/logo-2.png"
 
 const links = [
   { text: 'Home', path: '/' },
@@ -71,7 +72,7 @@ export default function Navbar() {
         />
         <HStack spacing={240} alignItems="center">
           <Link to="/">
-            <Image width={130} size="sm" src="./images/logo-2.png" alt="Logo" />
+            <Image width={130} size="sm" src={logo} alt="Logo" />
           </Link>
           <HStack as="nav" spacing={12} display={{ base: 'none', md: 'flex' }}>
             {links.map(({ text, path }) => (
@@ -82,7 +83,11 @@ export default function Navbar() {
           </HStack>
         </HStack>
         {flag ? (
-          <Link to="/login"> <Button  > Login </Button> </Link> 
+          <Box>
+             <Link to="/login"> <Button  > Login </Button> </Link> 
+             <Link to="/signup"> <Button  > SIGN UP </Button> </Link> 
+          </Box>
+         
         ) : (
           <Flex alignItems="center">
             <Menu>

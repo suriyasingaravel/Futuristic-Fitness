@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
-import { Input, Button, Flex, ChakraProvider, Alert, AlertIcon, CloseButton } from '@chakra-ui/react';
+import React, { useState, useEffect } from 'react';
+import {
+  Input,
+  Button,
+  Flex,
+  ChakraProvider,
+  Alert,
+  AlertIcon,
+  CloseButton,
+} from '@chakra-ui/react';
 import bg2 from '../assets/images/pexels-cottonbro-studio-4761352.jpg';
-import axios from 'axios';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -10,35 +17,47 @@ const Login = () => {
   });
 
   const [loginError, setLoginError] = useState('');
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const [countdown, setCountdown] = useState(3); // Number of seconds for countdown
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     setCredentials({
       ...credentials,
       [e.target.name]: e.target.value,
     });
-  }
+  };
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    try {
-      setLoginError('');
-      // Perform login API request
-      const response = await axios.post('https://mock-signup-api.onrender.com/users', credentials);
-      if (response.data.success) {
-        console.log('Login successful');
-        // Perform navigation to home or desired page
-      } 
-      else {
-        setLoginError('Invalid credentials. Please check your email and password.');
-      }
-    } catch (error) {
-      setLoginError('Login failed. Please try again.');
+    if (credentials.email === 'suriya@gmail.com' && credentials.password === '12345') {
+      console.log('Login successful');
+      setShowSuccessAlert(true);
+
+      const timer = setInterval(() => {
+        setCountdown((prevCountdown) => prevCountdown - 1);
+      }, 1000); // Update countdown every second
+
+      setTimeout(() => {
+        setShowSuccessAlert(false);
+        clearInterval(timer); // Clear the countdown interval
+        // Redirect or perform any other action
+        window.location.href = '/';
+      }, countdown * 1000); // Redirect after countdown seconds
+    } else {
+      setLoginError('Invalid email or password.');
     }
   };
 
-  return (
+  useEffect(() => {
+    if (showSuccessAlert && countdown === 0) {
+      // Redirect once the countdown reaches 0
+      window.location.href = '/';
+    }
+  }, [showSuccessAlert, countdown]);
 
+  return (
+    <ChakraProvider>
       <div
         style={{
           height: '100vh',
@@ -62,6 +81,7 @@ const Login = () => {
               marginBottom="10px"
               value={credentials.email}
               onChange={handleChange}
+              style={{ width: '500px' }}
             />
             <Input
               name="password"
@@ -70,20 +90,28 @@ const Login = () => {
               placeholder="Password"
               value={credentials.password}
               onChange={handleChange}
+              style={{ width: '500px' }}
             />
             <Button type="submit" colorScheme="teal">
               LOGIN
             </Button>
             {loginError && (
-              <Alert status="error" mt={4}>
-                <AlertIcon />
+              <Alert status="error" bg="red.600" mt={4}>
+                <AlertIcon color="red.400" />
                 {loginError}
                 <CloseButton position="absolute" right="8px" top="8px" onClick={() => setLoginError('')} />
+              </Alert>
+            )}
+            {showSuccessAlert && (
+              <Alert status="success" bg="green.600" mt={4}>
+                <AlertIcon color="green.400" />
+                Login successful! Redirecting in {countdown} seconds...
               </Alert>
             )}
           </Flex>
         </form>
       </div>
+    </ChakraProvider>
   );
 };
 

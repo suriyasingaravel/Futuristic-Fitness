@@ -9,7 +9,7 @@ import Todos from "../pages/Todos"
 import Beginner from "../pages/Beginner"
 import Intermediate from "../pages/Intermediate"
 import Advanced from "../pages/Advanced"
-import SignUpPage from "../pages/SingUpPage"
+import Signup from "../pages/Signup"
 
 function AllRoutes(){
 return (
@@ -19,7 +19,7 @@ return (
         <Route path="/about" element={<About />} />
         <Route path="/explore" element={<Destination />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/bmicalculator" element={<BmiCalculator />} />
         <Route path="/stopwatch" element={<Stopwatch />} />
         <Route path="/todo" element={<Todos/>} />

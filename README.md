@@ -39,42 +39,30 @@ To run **Futuristic Fitness** locally, you'll need the following:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/futuristic-fitness.git                                              2. Navigate to the project directory:
+   git clone https://github.com/your-username/futuristic-fitness.git
 
-   ```bash
-   git clone https://github.com/your-username/futuristic-fitness.git                                              3.Open the index.html file in your web browser to access the website.                                          cd futuristic-fitness
-Open the index.html file in your web browser to access the website.
+- **Navigate to the project directory:** cd futuristic-fitness
 
-Usage
-Home Page
 
-Get an overview of the platform and its features.
-Explore Page
 
-Browse through the workout plans categorized by skill levels.
-Stopwatch Page
+## Usage
+- **Home Page:** Get an overview of the platform and its features.
+- **Explore Page:** Browse through the workout plans categorized by skill levels.
+- **Stopwatch Page:** Use the stopwatch to time your workouts accurately.
+- **BMI Calculator Page:**  Calculate your BMI and gain insights into your fitness status.
+- **To-Do Lists Page:**  Organize your fitness routines and other tasks effectively.
+- **About Page:** Learn more about the creators and vision behind Futuristic Fitness.
 
-Use the stopwatch to time your workouts accurately.
-BMI Calculator Page
-
-Calculate your BMI and gain insights into your fitness status.
-To-Do Lists Page
-
-Organize your fitness routines and other tasks effectively.
-About Page
-
-Learn more about the creators and vision behind Futuristic Fitness.
-Contributing
+### Contributing
 We welcome contributions to make Futuristic Fitness even better! If you'd like to contribute:
 
-Fork the repository and create your branch.
-Make your enhancements or fixes.
-Create a pull request, describing the changes you've made.
-License
+1. Fork the repository and create your branch.
+2. Make your enhancements or fixes.
+3. Create a pull request, describing the changes you've made.
+
+### License
 This project is licensed under the MIT License.
 
-Contact
-Have questions, feedback, or suggestions? Feel free to reach out to us at your-email@example.com.
-
-
+### Contact
+Have questions, feedback, or suggestions? Feel free to reach out to us at suriyasingaravel710@gmail.com.
 

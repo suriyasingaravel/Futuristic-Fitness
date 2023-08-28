@@ -3,7 +3,7 @@
 
 Welcome to **Futuristic Fitness** – your ultimate destination for achieving your fitness goals! Whether you're just starting your fitness journey or you're an experienced fitness enthusiast, our platform is designed to support you every step of the way. From workout plans tailored to different levels to handy tools like a stopwatch, BMI calculator, and to-do lists, we've got you covered.
 
-### Netlify Link
+### Vercel Link
 https://fitness-website-suriyasingaravel.vercel.app/
 
 #### Homepage 

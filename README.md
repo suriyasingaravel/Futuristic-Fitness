@@ -3,6 +3,8 @@
 
 Welcome to **Futuristic Fitness** – your ultimate destination for achieving your fitness goals! Whether you're just starting your fitness journey or you're an experienced fitness enthusiast, our platform is designed to support you every step of the way. From workout plans tailored to different levels to handy tools like a stopwatch, BMI calculator, and to-do lists, we've got you covered.
 
+### Netlify Link
+https://fitness-website-ashy.vercel.app/
 
 #### Homepage 
 ![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ubhr232wuc2wyvvny1nh.png)

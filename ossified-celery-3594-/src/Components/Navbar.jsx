@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Flex,
@@ -15,16 +15,17 @@ import {
   useColorModeValue,
   Stack,
   Image,
+  Text,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-import logo from "../assets/images/logo-2.png"
+import logo from '../assets/images/logo-2.png';
 
 const links = [
   { text: 'Home', path: '/' },
   { text: 'Explore', path: '/explore' },
   { text: 'About', path: '/about' },
-  { text: 'Contact', path: '/contact' },
+  { text: 'Contact', path: '/' },
 ];
 
 const NavLink = ({ to, children }) => {
@@ -47,16 +48,22 @@ const NavLink = ({ to, children }) => {
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [flag, setFlag] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const token = localStorage.getItem('token');
+  const username = localStorage.getItem('username');
+  const email = localStorage.getItem('email');
+  const avatar = localStorage.getItem('avatar');
 
-  const handleLogin = () => {
-    // Simulate login process
-    setFlag(false);
-  };
+  console.log(token);
+
+  useEffect(() => {
+    // Update isLoggedIn when the token changes
+    setIsLoggedIn(!!token); // Set to true if token exists, false otherwise
+  }, [token]);
 
   const handleLogout = () => {
     // Simulate logout process
+    localStorage.clear();
     setIsLoggedIn(false);
   };
 
@@ -82,38 +89,47 @@ export default function Navbar() {
             ))}
           </HStack>
         </HStack>
-        {flag ? (
-          <Box>
-             <Link to="/login"> <Button  > Login </Button> </Link> 
-             <Link to="/signup"> <Button  > SIGN UP </Button> </Link> 
-          </Box>
-         
+
+        {(!token) ? (
+         <Box>
+         <Link to="/login">
+           <Button mr={{ base:2, sm: 2, md:2, lg:2}}>Login</Button>
+         </Link>
+         <Link to="/signup">
+           <Button >SIGN UP</Button>
+         </Link>
+       </Box>
         ) : (
           <Flex alignItems="center">
+             {token && (
+        <Box display={{ base: 'none', sm: 'none', md: 'block', lg: 'block' }}>
+          <Text mr={{ base: 0, sm: 0, md: 1, lg: 1 }}>Hello, {username}!</Text>
+        </Box>
+      )}
             <Menu>
               <MenuButton as={Button} rounded="full" variant="link" cursor="pointer" minW={0}>
-                <Avatar size="sm" alt="User Avatar" />
+                <Avatar src={avatar} size="sm" alt="User Avatar" />
               </MenuButton>
               <MenuList bg="black" color="white">
-                <Link to="/bmicalculator"> <MenuItem bg="black" color="white">BMI Calculator</MenuItem> </Link>
-                <Link to="/stopwatch"> <MenuItem bg="black" color="white">Stop watch</MenuItem>  </Link> 
-                <Link to="/todo"  > <MenuItem bg="black" color="white">Workout plan</MenuItem> </Link>   
+                <Link to="/bmicalculator">
+                  <MenuItem bg="black" color="white">BMI Calculator</MenuItem>
+                </Link>
+                <Link to="/stopwatch">
+                  <MenuItem bg="black" color="white">Stopwatch</MenuItem>
+                </Link>
+                <Link to="/todo">
+                  <MenuItem bg="black" color="white">Workout Plan</MenuItem>
+                </Link>
                 <MenuDivider />
-                <Button backgroundColor="black"  _hover={{ backgroundColor: "black" }} onClick={()=>setFlag(true)}> <MenuItem bg="black" color="white">Logout</MenuItem> </Button>
+                <Button backgroundColor="black" _hover={{ backgroundColor: 'black' }} onClick={handleLogout}>
+                  <MenuItem bg="black" color="white" > <Button> Logout </Button></MenuItem>
+                </Button>
               </MenuList>
             </Menu>
           </Flex>
         )}
       </Flex>
 
-      {/* Conditional rendering for login/logout buttons */}
-      {/* {isLoggedIn ? (
-        <Button onClick={handleLogout}>Logout</Button>
-      ) : (
-        <Button onClick={handleLogin}>Login</Button>
-      )} */}
-      
-      {/* Rest of your conditional rendering */}
       {isOpen && (
         <Box pb={4} display={{ md: 'none' }}>
           <Stack as="nav" spacing={4}>

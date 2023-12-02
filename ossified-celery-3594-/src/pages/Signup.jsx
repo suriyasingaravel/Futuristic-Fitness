@@ -12,10 +12,13 @@ import {
   AlertIcon,
 } from '@chakra-ui/react';
 import bg3 from '../assets/images/pexels-cottonbro-studio-4753892.jpg';
+import axios from 'axios';
 
 const Signup = () => {
+
   const [formData, setFormData] = useState({
     username: '',
+    avatar:"",
     email: '',
     password: '',
   });
@@ -32,6 +35,10 @@ const Signup = () => {
       [name]: value,
     }));
   };
+
+
+
+
 
   useEffect(() => {
     let interval;
@@ -57,24 +64,16 @@ const Signup = () => {
   const handleSignUp = (event) => {
     event.preventDefault();
 
-    // Perform form validation
-    const newErrors = {};
-    if (!formData.username) {
-      newErrors.username = 'Username is required';
-    }
-    if (!formData.email) {
-      newErrors.email = 'Email is required';
-    }
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-    }
-    setErrors(newErrors);
+    console.log(formData)
 
-    // If no errors, simulate signup success and show success message
-    if (Object.keys(newErrors).length === 0) {
-      setSignupError('');
-      setSignupSuccess(true);
-    }
+    // Perform form validation
+      axios.post(`https://mock-api-templates-b0bf.onrender.com/users`, formData)
+      .then((response) => {
+          console.log(response.data);
+          setSignupSuccess(true);
+          setRedirectTimer(3);
+        })
+        .catch(err => setSignupError(err));
   };
 
   return (
@@ -102,6 +101,16 @@ const Signup = () => {
                   type="text"
                   name="username"
                   value={formData.username}
+                  onChange={handleChange}
+                />
+                <FormErrorMessage>{errors.username}</FormErrorMessage>
+              </FormControl>
+              <FormControl isInvalid={!!errors.username}>
+                <FormLabel>Enter Image Url</FormLabel>
+                <Input
+                  type="text"
+                  name="avatar"
+                  value={formData.avatar}
                   onChange={handleChange}
                 />
                 <FormErrorMessage>{errors.username}</FormErrorMessage>

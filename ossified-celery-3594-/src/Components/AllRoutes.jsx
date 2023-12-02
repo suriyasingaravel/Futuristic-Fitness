@@ -10,6 +10,7 @@ import Beginner from "../pages/Beginner"
 import Intermediate from "../pages/Intermediate"
 import Advanced from "../pages/Advanced"
 import Signup from "../pages/Signup"
+import PrivateRouter from "./PrivateRoute"
 
 function AllRoutes(){
 return (
@@ -23,7 +24,7 @@ return (
         <Route path="/bmicalculator" element={<BmiCalculator />} />
         <Route path="/stopwatch" element={<Stopwatch />} />
         <Route path="/todo" element={<Todos/>} />
-        <Route path="/beginner" element={<Beginner/>} />
+        <Route path="/beginner" element={ <Beginner/> } />
         <Route path="/intermediate" element={<Intermediate/>} />
         <Route path="/advanced" element={<Advanced/>} />
    </Routes>

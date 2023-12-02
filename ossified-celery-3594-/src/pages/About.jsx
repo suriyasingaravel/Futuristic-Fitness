@@ -2,9 +2,10 @@ import React from 'react'
 // import Navbar from '../Components/Navbar'
 import { Container, Box, Heading, Text, Image, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import fitness from '../assets/images/pexels-bi̇lal-karadağ-17939409.jpg';
-import bg from '../assets/images/pexels-cottonbro-studio-7674497.jpg';
+import fitness from '../assets/images/portrait-muscled-athlete-bodybuilder-workouts-alone-sport-gym-indoors_489646-18891.avif';
+import bg from '../assets/images/woman-holding-weights-near-barbells_651396-1617.jpg';
 import appstore from '../assets/images/playstore.png';
+import Swiper from '../Components/Swiper';
 
 
 
@@ -13,18 +14,23 @@ const About = () => {
   return (
     <div style={{paddingTop:"80px", backgroundColor:"black"}} >
      <Box bg="black" color="white">
-      <Box
-        className="aboutBg"
-        style={{ backgroundImage: `url(${bg})`, minHeight: '300px', padding: '50px' }}
-        textAlign="center"
-      >
-        <Heading as="h2" size="xl" marginBottom={10}>
-          Elevate Your Fitness Journey
-        </Heading>
-        <Link to="/explore">
-          <Button colorScheme="blue">Explore More</Button>
-        </Link>
-      </Box>
+     <Box
+      className="aboutBg"
+      style={{
+        backgroundImage: `url(${bg})`,
+        backgroundSize: 'cover', // or 'contain' based on your preference
+        minHeight: '300px',
+        padding: '50px',
+        textAlign: 'center',
+      }}
+    >
+      <Heading as="h2" size="xl" marginBottom={10} color="white">
+        Elevate Your Fitness Journey
+      </Heading>
+      <Link to="/explore">
+        <Button colorScheme="blue">Explore More</Button>
+      </Link>
+    </Box>
 
       <Container maxW="90%" margin="auto" marginTop={10}>
         <Box marginBottom={10}>
@@ -68,12 +74,15 @@ const About = () => {
             understand your body's composition. Additionally, our integrated to-do lists keep you organized, ensuring
             you stay committed to your goals.
           </Text>
-          <Button as={Link} to="https://play.google.com/store/games?device=windows&pli=1" backgroundColor="#FF6129">
+          <Button mb={10} as={Link} to="https://play.google.com/store/games?device=windows&pli=1" backgroundColor="#FF6129">
             DOWNLOAD THE APP
           </Button>
+          <Swiper/>
         </Box>
       </Container>
+
     </Box>
+    
     </div>
   )
 }

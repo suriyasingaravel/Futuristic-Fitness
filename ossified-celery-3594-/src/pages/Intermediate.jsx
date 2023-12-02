@@ -39,7 +39,7 @@ const Intermediate = () => {
   };
 
   return (
-    <div style={{ backgroundColor: 'black', color: 'white', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: 'black', color: 'white', textAlign:"center", minHeight: '100vh' }}>
       <Box p={4}>
         <Text fontSize="xl" fontWeight="bold" my={4}>
           Beginner Exercises

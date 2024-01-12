@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Box, Grid, Image, Text, Button, Skeleton, Alert, AlertIcon } from '@chakra-ui/react';
 import ExerciseModal from '../Components/ExcerciseModal';
@@ -18,7 +18,8 @@ const Beginner = () => {
         );
         setExercises(response.data);
         setIsLoading(false);
-      } catch (error) {
+      }
+       catch (error) {
         console.error('Error fetching exercises:', error);
         setError(error.message);
         setIsLoading(false);

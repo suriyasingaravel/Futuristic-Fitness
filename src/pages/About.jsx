@@ -77,7 +77,10 @@ const About = () => {
           <Button mb={10} as={Link} to="https://play.google.com/store/games?device=windows&pli=1" backgroundColor="#FF6129">
             DOWNLOAD THE APP
           </Button>
+          <div style={{width:"100%"}}>
           <Swiper/>
+          </div>
+         
         </Box>
       </Container>
 
